@@ -23,19 +23,19 @@
       href="../../favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="../../favicon/site.webmanifest" />
+    <script src="./script.js" defer></script>
     <title>Counter | DOM Projects</title>
   </head>
   <body>
     <main>
       <h2>Counter</h2>
-      <h1 id="counter-value" contenteditable="true">0</h1>
+      <h1 id="counter_value" contenteditable="true">0</h1>
       <section class="btn-area">
-        <button class="btn decrease">-</button>
-        <button class="btn reset">&#x21bb;</button>
-        <button class="btn increase">+</button>
+        <button class="btn decrease" id="minus_button">-</button>
+        <button class="btn reset" id="refresh_button">&#x21bb;</button>
+        <button class="btn increase" id="plus_button">+</button>
       </section>
     </main>
 
-    <script src="./script.js"></script>
   </body>
 </html>
