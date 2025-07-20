@@ -1,25 +1,27 @@
-const jokesDiv = this.window.document.querySelector('.jokesDiv');
-const jokesGeneratorBtn = this.window.document.querySelector('.jokesGeneratorBtn');
+const jokesDiv = this.window.document.querySelector(".jokesDiv");
+const jokesGeneratorBtn = this.window.document.querySelector(".jokesGeneratorBtn");
 
-let url = 'https://icanhazdadjoke.com/';
-let timeOut = 10000;
+const timer = 3000;
 
-function setWaitTime() {
-    
-}
 async function generateJokes() {
-    try {
-        const response = await fetch(url, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-    } catch(error) {
-
-    } finally {
-
+  const url = "https://icanhazdadjoke.com/";
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
     }
+    const json = await response.json();
+    console.log(json);
+    jokesDiv.innerHTML = json.joke;
+  } catch (error) {
+    console.error(error);
+  }
 }
-jokesGeneratorBtn.addEventListener('click', function(e) {
-    generateJokes();
-})
+
+jokesGeneratorBtn.addEventListener("click", function () {
+  generateJokes();
+});
