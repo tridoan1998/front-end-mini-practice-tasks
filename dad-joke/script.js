@@ -15,7 +15,6 @@ async function generateJokes() {
       throw new Error(`Response status: ${response.status}`);
     }
     const json = await response.json();
-    console.log(json);
     jokesDiv.innerHTML = json.joke;
   } catch (error) {
     console.error(error);
